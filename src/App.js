@@ -98,29 +98,32 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="Dropzone-page">
-        {this.state.model ? (
-          <MagicDropzone
-            className="Dropzone"
-            accept="image/jpeg, image/png, .jpg, .jpeg, .png"
-            multiple={false}
-            onDrop={this.onDrop}
-          >
-            {this.state.preview ? (
-              <img
-                alt="upload preview"
-                onLoad={this.onImageChange}
-                className="Dropzone-img"
-                src={this.state.preview}
-              />
-            ) : (
-              "Choose or drop a file."
-            )}
-            <canvas id="canvas" />
-          </MagicDropzone>
-        ) : (
-          <div className="Dropzone">Loading model...</div>
-        )}
+      <div className="body">
+        <div className="header">Object Detection APP</div>
+        <div className="Dropzone-page">
+          {this.state.model ? (
+            <MagicDropzone
+              className="Dropzone"
+              accept="image/jpeg, image/png, .jpg, .jpeg, .png"
+              multiple={false}
+              onDrop={this.onDrop}
+            >
+              {this.state.preview ? (
+                <img
+                  alt="upload preview"
+                  onLoad={this.onImageChange}
+                  className="Dropzone-img"
+                  src={this.state.preview}
+                />
+              ) : (
+                "Choose or drop a file."
+              )}
+              <canvas id="canvas" />
+            </MagicDropzone>
+          ) : (
+            <div className="Dropzone">Loading model...</div>
+          )}
+        </div>
       </div>
     );
   }
